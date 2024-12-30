@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Lottery</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1 id="first"><u>Today's Lottery Results</u></h1><br>
+<button id="click" onclick="getResults()" data-toggle="modal" data-target="#demo1">
+Result</button>
+<div class="modal fade" id="demo1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">
+					Today's Ticket Winner
+				</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p id="demo2"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class=" btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+<p id="demo"></p>
+<script type="text/javascript">
+	var lotteryTicketNumbers=['7689 4321','7689 2351','7689 9898','7689 1111','7689 4545','7689 9876',
+							'7689 1234','7689 5678','7699 3567','6789 3456','4576 8976','4569 1235',
+							'5689 2345','5689 3456','9976 0876','4507 8050','6745 8245','2345 8888',
+							'7289 2789','3565 3778','7800 1200','4567 0837','4566 9067','5778 5467'];
+	function getResults(){
+		var arryLength=lotteryTicketNumbers.length;
+		var result,arryIndex;
+		arryIndex=Math.floor(Math.random()*arryLength);
+		result=lotteryTicketNumbers[arryIndex];
+		console.log(result);
+		document.getElementById("demo").innerHTML=result;
+		document.getElementById("demo2").innerHTML=`Winner is ticket number:<br><b> ${result}`;
+		}
+	// stylling the body
+	document.body.style.backgroundColor='#CADCFC';
+	document.body.style.textAlign='center';
+	document.body.style.color='#00246B';
+	document.body.style.fontSize='50px'
+	// stylling button
+	var win=document.querySelector("#click")
+	win.style.fontSize='60px';
+	win.style.width='40%';
+	win.style.backgroundColor='#00246B';
+	win.style.color='white';
+	// styling result
+	document.getElementById("demo").style.color='red';
+</script>
+</body>
+</html>

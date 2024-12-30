@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Calculator</title>
+</head>
+<body>
+	<div id="first">
+	<h1 id="a">Basic Calculator</h1>
+	<input type="text" id="demo" placeholder="Enter the value"><br>
+	<select id="operator">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">&times;</option>
+		<option value="/">&divide;</option>
+	</select><br>
+	<input type="text" id="demo1" placeholder="Enter the value"><br>
+	<button id="click" onclick="getResult()">=</button>
+	<p id="result"></p>
+</div>
+	<script type="text/javascript">
+		function getResult(){
+		var firstNumber,secondNumber;
+		firstNumber=parseFloat(document.getElementById("demo").value);
+		secondNumber=parseFloat(document.getElementById("demo1").value);
+		var sign=document.getElementById("operator").value;
+		var result;
+		switch(sign){
+			case '+':
+				result=add(firstNumber,secondNumber);
+				break;
+			case '-':
+				result=difference(firstNumber,secondNumber);
+				break;
+			case '*':
+				result=product(firstNumber,secondNumber);
+				break;
+			case '/':
+				result=division(firstNumber,secondNumber);
+				break;
+			default:
+				result="Invalid operator";
+				break;
+		}
+	document.getElementById("result").innerHTML=`Result:  ${result}`;
+	}
+			function add(a,b){
+				var sum;
+				sum=(a+b);
+				return sum;
+			} 
+			function difference(a,b){
+				var sub;
+				sub=(a-b);
+				return sub;
+			}
+			function product(a,b){
+				var mul;
+				mul=(a*b);
+				return mul;
+			}
+			function division(a,b){
+				if(b==0){
+					return "Invalid Operation";
+				}
+				else{
+				var div;
+				div=(a/b);
+				return div;
+			}
+			}
+			// styling the body
+			document.body.style.backgroundColor='darkgray';
+			document.body.style.height='100vh';
+			document.body.style.margin='0';
+			document.body.style.display='flex';
+			document.body.style.justifyContent='center';
+			document.body.style.alignItems='center';
+			// styling first Input
+			var firstInput=document.querySelector("#demo");
+				firstInput.style.width='100%';
+				firstInput.style.padding='15px';
+				firstInput.style.backgroundColor='lightgray';
+				firstInput.style.fontSize='25px';
+			// styling second input
+			var secondInput=document.querySelector("#demo1");
+				secondInput.style.width='100%';
+				secondInput.style.padding='15px';
+				secondInput.style.backgroundColor='lightgray';
+				secondInput.style.fontSize='25px';
+			// styling the operator
+			var symbol=document.querySelector("#operator");
+				symbol.style.fontSize='50px';
+				symbol.style.backgroundColor='gray';
+			// styling div
+			var element=document.querySelector("#first");
+				element.style.textAlign='center';
+				element.style.lineHeight='70px';
+			// styling button
+			var equals=document.querySelector("#click");
+				equals.style.fontSize='50px';
+				equals.style.backgroundColor='gray';
+			document.getElementById("result").style.fontSize='40px';
+	</script>
+</body>
+</html>
